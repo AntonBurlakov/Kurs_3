@@ -21,13 +21,15 @@ class Operation:
     @staticmethod
     def hide_number(way):
         if way.startswith('Счет'):
-            q = re.sub(r'[а-я]+\s?', '', way.lower()).strip()
-            s = re.sub(r'\d+\s?', '', way).strip()
-            return f"{s} {(len(q[:2]) * '*') + q[-4:]}"
-        w = re.sub(r'[a-z]+\s?', '', way.lower()).strip()
-        r = re.sub(r'\d+\s?', '', way).strip()
-        git_asterisk_for_from = w[:6] + (len(w[6:-4]) * '*') + w[-4:]
-        return f"{r} {git_asterisk_for_from}"
+            delete_word = re.sub(r'[a-z]+\s?', '', way.lower()).strip()
+            delete_digit = re.sub(r'\d+\s?', '', way).strip()
+            replace_stars = (len(delete_word[:2]) * '*') + delete_word[-4:]
+            return f"{delete_digit} {replace_stars}"
+        delete_word = re.sub(r'[a-z]+\s?', '', way.lower()).strip()
+        delete_digit = re.sub(r'\d+\s?', '', way).strip()
+        git_asterisk_for_from = delete_word[:6] + (len(delete_word[6:-4]) * '*') + delete_word[-4:]
+        replace_stars = " ".join([git_asterisk_for_from[i:i + 4] for i in range(0, len(git_asterisk_for_from), 4)])
+        return f"{delete_digit} {replace_stars}"
 
     def __repr__(self):
         return f'{self.date_1} {self.description}\n ' \

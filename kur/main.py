@@ -1,4 +1,3 @@
-from pprint import pprint
 
 from kur.utils import SortedList
 
@@ -14,4 +13,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    print(main())

@@ -10,7 +10,7 @@ class Operation:
         self.state = state
         self.operation_amount = operation_amount
         self.description = description
-        self.from_ = self.hide_number(from_) if from_ else ''
+        self.from_ = self.hide_number(from_) if from_ else 'Новый счет'
         self.to = self.hide_number(to)
 
     @staticmethod

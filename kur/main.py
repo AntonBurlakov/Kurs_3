@@ -4,9 +4,9 @@ from kur.utils import SortedList
 
 
 def main():
-    opera = SortedList()
-    for op in opera.new_true_five_dict():
-        print(op)
+    start_code = SortedList()
+    for start in start_code.new_true_five_dict():
+        print(start)
 
 
 if __name__ == '__main__':

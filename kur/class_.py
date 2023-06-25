@@ -14,12 +14,23 @@ class Operation:
         self.to = self.hide_number(to)
 
     @staticmethod
-    def correct_data(date_2):
-        str_date = datetime.strptime(date_2, '%Y-%m-%dT%H:%M:%S.%f')
+    def correct_data(any_data) -> str:
+        """
+        Переводит дату в нужный нам формат
+        :param any_data:
+        :return:
+        """
+        str_date = datetime.strptime(any_data, '%Y-%m-%dT%H:%M:%S.%f')
         return datetime.strftime(str_date, '%d-%m-%Y')
 
     @staticmethod
-    def hide_number(way):
+    def hide_number(way) -> str:
+        """
+        Работает с номером карты или счета
+        Делает нужный формат
+        :param way:
+        :return:
+        """
         if way.startswith('Счет'):
             delete_word = re.sub(r'[a-z]+\s?', '', way.lower()).strip()
             delete_digit = re.sub(r'\d+\s?', '', way).strip()
